@@ -11,7 +11,7 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
     if(user === 'admin' && pass === 'admin123') {
         document.getElementById('login-page').classList.add('hidden');
         document.getElementById('main-content').classList.remove('hidden');
-        fetchAllIssues(); // ফেচ শুরু
+        fetchAllIssues(); 
     } else {
         alert('Invalid Credentials! (admin / admin123)');
     }
@@ -25,13 +25,13 @@ async function fetchAllIssues() {
         if (!response.ok) throw new Error('Network response was not ok');
         
         const result = await response.json();
-        // API response structure handle (result.data অথবা সরাসরি result)
+        // API response structure handle (result.data )
         allIssues = result.data ? result.data : result;
         
         renderIssues(allIssues);
     } catch (error) {
         console.error("Fetch Error:", error);
-        alert("ড্যাটা লোড করতে সমস্যা হচ্ছে! দয়া করে ইন্টারনেট কানেকশন বা API চেক করুন।");
+        alert("data/network chack");
     } finally {
         toggleLoader(false);
     }
@@ -90,7 +90,7 @@ async function fetchSingleIssue(id) {
         const modal = document.getElementById('modal');
         const modalBody = document.getElementById('modal-content');
 
-        // স্ক্রিনশট অনুযায়ী হুবহু ডিজাইন
+        
         modalBody.innerHTML = `
             <h2 class="text-3xl font-bold text-[#111827] mb-4">${issue.title}</h2>
             
@@ -131,7 +131,7 @@ async function fetchSingleIssue(id) {
         modal.classList.remove('hidden');
     } catch (err) {
         console.error("Modal Error:", err);
-        alert("ড্যাটা লোড করা সম্ভব হয়নি।");
+        alert("Error");
     } finally {
         toggleLoader(false);
     }
