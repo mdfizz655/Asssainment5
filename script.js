@@ -142,7 +142,9 @@ async function fetchSingleIssue(id) {
     }
 }
 
-// 5. Tabs & Search logic
+//Tabs & Search logic
+
+
 function filterIssues(status) {
     document.querySelectorAll('[id^="btn-"]').forEach(btn => btn.classList.remove('active-tab'));
     document.getElementById(`btn-${status}`).classList.add('active-tab');
