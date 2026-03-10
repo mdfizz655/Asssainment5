@@ -2,7 +2,7 @@
 const API_BASE_URL = "https://phi-lab-server.vercel.app/api/v1/lab";
 let allIssues = [];
 
-//Login Logic
+// Login Logic
 document.getElementById('login-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const user = document.getElementById('username').value;
@@ -17,7 +17,8 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
     }
 });
 
-// 2. Fetch All Issues (with better error handling)
+// All Issues 
+
 async function fetchAllIssues() {
     toggleLoader(true);
     try {
