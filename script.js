@@ -2,7 +2,7 @@
 const API_BASE_URL = "https://phi-lab-server.vercel.app/api/v1/lab";
 let allIssues = [];
 
-// 1. Simple Login Logic
+//Login Logic
 document.getElementById('login-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const user = document.getElementById('username').value;
