@@ -38,7 +38,9 @@ async function fetchAllIssues() {
     }
 }
 
-// 3. Render Cards
+//Render Cards
+
+
 function renderIssues(issues) {
     const container = document.getElementById('issues-container');
     const countDisplay = document.getElementById('issue-count');
@@ -46,13 +48,15 @@ function renderIssues(issues) {
     countDisplay.innerText = `${issues.length} Issues`;
 
     issues.forEach(issue => {
-        // Status color logic (Open = Green, Closed = Purple)
+        
+
         const isClosed = issue.status?.toLowerCase() === 'closed';
         const borderClass = isClosed ? 'border-t-[#8b5cf6]' : 'border-t-[#22c55e]';
 
         const card = document.createElement('div');
         card.className = `bg-white p-5 rounded-lg border-t-4 ${borderClass} shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between`;
         
+
         // Card Click Event
         card.onclick = () => fetchSingleIssue(issue._id || issue.id);
 
@@ -79,7 +83,7 @@ function renderIssues(issues) {
     });
 }
 
-// 4. Single Issue Fetch (Modal)
+// Single Issue 
 async function fetchSingleIssue(id) {
     if (!id) return;
     toggleLoader(true);
